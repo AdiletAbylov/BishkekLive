@@ -11,4 +11,5 @@
 
 @interface SPLMCell : UITableViewCell
 @property IBOutlet UILabel *titleLabel;
+
 @end

@@ -9,11 +9,11 @@
 #import "SPLMViewController.h"
 #import "MediaPlayer/MediaPlayer.h"
 #import "SPLMCell.h"
+#import "SPLMCamera.h"
 
 @interface SPLMViewController ()
 {
-    NSArray *_videoURLS;
-    NSArray *_titles;
+    NSArray *_cameras;
 }
 
 @end
@@ -28,15 +28,10 @@
 - (void)viewDidLoad
 {
 
-    _videoURLS = [NSArray arrayWithObjects:@"http://livestream.saimanet.kg:1935/live/alatoo_500kb.stream/playlist.m3u8",
-                                           @"http://livestream.saimanet.kg:1935/live/chui-ibraimova_500kb.stream/playlist.m3u8",
-                                           @"http://livestream.saimanet.kg:1935/live/berengold_500kb.stream/playlist.m3u8",
-                                           nil
-    ];
-
-    _titles = [NSArray arrayWithObjects:@"Площадь Ала-Тоо", @"Чуй - Ибраимова", @"Чуй - Байтик-баатыра", nil];
+   
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _cameras = [SPLMCamera bishkekCameras];
     _spalmaloLabel.textColor = [UIColor colorWithRed:176.0/255.0 green:59.0/255.0 blue:0 alpha:1];
     _copyrightLabel.textColor = [UIColor colorWithRed:159.0/255.0 green:159.0/255.0 blue:159.0/255.0 alpha:1];
     [super viewDidLoad];
@@ -49,19 +44,21 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _titles.count;
+    return _cameras.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SPLMCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.titleLabel.text = [_titles objectAtIndex:indexPath.row];
+    SPLMCamera *camera = [_cameras objectAtIndex:indexPath.row];
+    cell.titleLabel.text = camera.title;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSURL *url = [[NSURL alloc] initWithString:[_videoURLS objectAtIndex:indexPath.row]];
+    SPLMCamera *camera = [_cameras objectAtIndex:indexPath.row];
+    NSURL *url = [[NSURL alloc] initWithString: camera.videoURL];
     UIGraphicsBeginImageContext(CGSizeMake(1,1));// workaround to remove error messages
     MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
     [self presentViewController:controller animated:YES completion:nil];
