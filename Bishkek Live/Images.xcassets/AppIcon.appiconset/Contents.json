@@ -35,6 +35,18 @@
       "idiom" : "iphone",
       "filename" : "appIcon~120.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "appIconiPad.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "appIconiPad@2x.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
