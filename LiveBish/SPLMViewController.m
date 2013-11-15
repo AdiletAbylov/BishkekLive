@@ -10,6 +10,7 @@
 #import "MediaPlayer/MediaPlayer.h"
 #import "SPLMCell.h"
 #import "SPLMCamera.h"
+#import "KxMovieViewController.h"
 
 @interface SPLMViewController ()
 {
@@ -60,7 +61,8 @@
     SPLMCamera *camera = [_cameras objectAtIndex:indexPath.row];
     NSURL *url = [[NSURL alloc] initWithString: camera.videoURL];
     UIGraphicsBeginImageContext(CGSizeMake(1,1));// workaround to remove error messages
-    MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+    //MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+    KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:camera.videoURL parameters:nil];
     [self presentViewController:controller animated:YES completion:nil];
     UIGraphicsEndImageContext();
 }
