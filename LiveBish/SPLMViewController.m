@@ -10,6 +10,7 @@
 #import "MediaPlayer/MediaPlayer.h"
 #import "SPLMCell.h"
 #import "SPLMCamera.h"
+#import "KxMovieViewController.h"
 
 @interface SPLMViewController ()
 {
@@ -28,12 +29,12 @@
 - (void)viewDidLoad
 {
 
-   
+
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _cameras = [SPLMCamera bishkekCameras];
-    _spalmaloLabel.textColor = [UIColor colorWithRed:176.0/255.0 green:59.0/255.0 blue:0 alpha:1];
-    _copyrightLabel.textColor = [UIColor colorWithRed:159.0/255.0 green:159.0/255.0 blue:159.0/255.0 alpha:1];
+    _spalmaloLabel.textColor = [UIColor colorWithRed:176.0 / 255.0 green:59.0 / 255.0 blue:0 alpha:1];
+    _copyrightLabel.textColor = [UIColor colorWithRed:159.0 / 255.0 green:159.0 / 255.0 blue:159.0 / 255.0 alpha:1];
     [super viewDidLoad];
 }
 
@@ -42,6 +43,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _cameras.count;
@@ -58,9 +60,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SPLMCamera *camera = [_cameras objectAtIndex:indexPath.row];
-    NSURL *url = [[NSURL alloc] initWithString: camera.videoURL];
-    UIGraphicsBeginImageContext(CGSizeMake(1,1));// workaround to remove error messages
-    MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+    NSURL *url = [[NSURL alloc] initWithString:camera.videoURL];
+    UIGraphicsBeginImageContext(CGSizeMake(1, 1));// workaround to remove error messages
+    KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:camera.videoURL parameters:nil];
+    controller.titleText = camera.title;
     [self presentViewController:controller animated:YES completion:nil];
     UIGraphicsEndImageContext();
 }

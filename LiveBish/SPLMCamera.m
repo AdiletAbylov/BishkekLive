@@ -29,7 +29,9 @@
     camera3.title =  @"Чуй - Байтик-баатыра";
     camera3.videoURL = @"http://livestream.saimanet.kg:1935/live/berengold_500kb.stream/playlist.m3u8";
     camera3.previewImageURL = @"http://live.saimanet.kg/cache/files/cam/46_w360_h218_crop.jpg";
-    
+
+
     return [NSArray arrayWithObjects:camera1,camera2, camera3, nil];
 }
 @end
+
