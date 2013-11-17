@@ -23,6 +23,7 @@ extern NSString * const KxMovieParameterDisableDeinterlacing;   // BOOL
                                parameters: (NSDictionary *) parameters;
 
 @property (readonly) BOOL playing;
+@property (nonatomic)NSString *titleText;
 
 - (void) play;
 - (void) pause;
