@@ -7,28 +7,77 @@
 //
 
 #import "SPLMViewController.h"
-#import "MediaPlayer/MediaPlayer.h"
+
 #import "SPLMCell.h"
 #import "SPLMCamera.h"
 #import "KxMovieViewController.h"
+#import "SPLMCamerasProxy.h"
+#import "SPLMPlace.h"
+#import "SVProgressHUD.h"
 
 @interface SPLMViewController ()
 {
     NSArray *_cameras;
+    SPLMCamerasProxy *_camerasProxy;
 }
 
 @end
 
 @implementation SPLMViewController
+{
+@private
+    UIButton *_refreshButton;
+}
 
 @synthesize tableView = _tableView;
+
+@synthesize refreshButton = _refreshButton;
 
 - (void)viewDidLoad
 {
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _cameras = [NSArray arrayWithObjects:[SPLMCamera bishkekCameras], [SPLMCamera karaBaltaCameras], nil];
+    [_refreshButton addTarget:self action:@selector(didTouchRefreshButton:) forControlEvents:UIControlEventTouchUpInside];
+    _refreshButton.hidden = YES;
     [super viewDidLoad];
+    [self fetchCameras];
+}
+
+- (void)didTouchRefreshButton:(id)sender
+{
+    [self fetchCameras];
+    _refreshButton.hidden = YES;
+}
+
+- (void)fetchCameras
+{
+    _camerasProxy = [[SPLMCamerasProxy alloc] init];
+    _camerasProxy.delegate = self;
+    [_camerasProxy fetchCameras];
+    [SVProgressHUD show];
+}
+
+
+- (void)camerasFailedError:(NSString *)errorString
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didHideHUD)
+                                                 name:SVProgressHUDDidDisappearNotification
+                                               object:nil];
+    [SVProgressHUD showErrorWithStatus:errorString];
+}
+
+- (void)didHideHUD
+{
+    _refreshButton.hidden = NO;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)camerasFetchSuccess:(NSArray *)cameras
+{
+    _cameras = cameras;
+    [SVProgressHUD dismiss];
+    [_tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,41 +94,39 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *array = [_cameras objectAtIndex:section];
-    return array.count;
+    SPLMPlace *place = [_cameras objectAtIndex:section];
+    return place.cameras.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    switch (section)
-    {
-        case 0:
-            return @"г. Бишкек";
-        case 1:
-            return @"г. Кара-Балта";
-        default:
-            return nil;
-    }
+    SPLMPlace *place = [_cameras objectAtIndex:section];
+    return place.placeName;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SPLMCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    NSArray *cityCameras = [_cameras objectAtIndex:indexPath.section];
-    SPLMCamera *camera = [cityCameras objectAtIndex:indexPath.row];
+    SPLMCamera *camera = [self cameraForIndexPath:indexPath];
     cell.titleLabel.text = camera.title;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *cityCameras = [_cameras objectAtIndex:indexPath.section];
-    SPLMCamera *camera = [cityCameras objectAtIndex:indexPath.row];
+    SPLMCamera *camera = [self cameraForIndexPath:indexPath];
     UIGraphicsBeginImageContext(CGSizeMake(1, 1));// workaround to remove error messages
     KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:camera.videoURL parameters:nil];
     controller.titleText = camera.title;
     [self presentViewController:controller animated:YES completion:nil];
     UIGraphicsEndImageContext();
+}
+
+- (SPLMCamera *)cameraForIndexPath:(NSIndexPath *)indexPath
+{
+    SPLMPlace *place = [_cameras objectAtIndex:indexPath.section];
+    NSArray *cityCameras = place.cameras;
+    return [cityCameras objectAtIndex:indexPath.row];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

@@ -12,7 +12,6 @@
 		60881BE0180D548D00A7265F /* MainStoryboard-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60881BDF180D548D00A7265F /* MainStoryboard-iPad.storyboard */; };
 		60881BE3180D5E5E00A7265F /* SPLMiPadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60881BE2180D5E5E00A7265F /* SPLMiPadCell.m */; };
 		60881BE6180D5FF700A7265F /* SPLMiPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60881BE5180D5FF700A7265F /* SPLMiPadViewController.m */; };
-		60881BE9180D615B00A7265F /* SPLMCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 60881BE8180D615B00A7265F /* SPLMCamera.m */; };
 		6093590D17E19F3800D8E886 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6093590C17E19F3800D8E886 /* appIcon.png */; };
 		6093590F17E19F3F00D8E886 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6093590E17E19F3F00D8E886 /* appIcon@2x.png */; };
 		60B2FA8B17E030E60070D98D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B2FA8A17E030E60070D98D /* UIKit.framework */; };
@@ -52,7 +51,10 @@
 		71F0F5B3B7B0DDE3ACE67645 /* playback_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F28A240F2BA40A18783B /* playback_pause.png */; };
 		71F0F6A2E9E9C8B020111F17 /* sliderthumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F17245764E3BF0A408CC /* sliderthumb@2x.png */; };
 		71F0F7B617CAFF643D2C9457 /* sliderthumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FBC2780F76322FDA3F98 /* sliderthumb.png */; };
+		71F0F7FB1D7A47852CE075D4 /* SPLMCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F3BE9EA01174DB4EF088 /* SPLMCamera.m */; };
+		71F0F8B2DEB8508707994D7A /* SPLMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0FC2C32C5F353FCFF58A1 /* SPLMPlace.m */; };
 		71F0F8BDF74E955D50A0C0F8 /* playback_next.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F0C40DFB0A7CC2683F0D /* playback_next.png */; };
+		71F0F8ED43C615CC1E395759 /* SPLMJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F76C2519535AE4CCBF89 /* SPLMJSONResponseSerializer.m */; };
 		71F0F926A8C58D0ED8642071 /* playback_ff.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FCF873E2435E309BA9A1 /* playback_ff.png */; };
 		71F0F9862F6130F87F789A6F /* playback_prev@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FD96038657104FC812C8 /* playback_prev@2x.png */; };
 		71F0FB749FECD947511CD753 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F0F26AECFA5B6154835F7A /* libswscale.a */; };
@@ -60,6 +62,7 @@
 		71F0FCD5B8D5F7C88C1F6BC0 /* playback_rew.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FCB9753668D7A5AE07CF /* playback_rew.png */; };
 		71F0FD7652E3C89D624A2595 /* playback_ff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F09C4B6682FE1F8F6AD5 /* playback_ff@2x.png */; };
 		71F0FDBED56DD3EB7D3CDE7B /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F0FA6B02D2750073F37FDE /* libavcodec.a */; };
+		71F0FDDB9414A51EDDE3760C /* SPLMCamerasProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F47379C93DD0C295DAF4 /* SPLMCamerasProxy.m */; };
 		71F0FDFA5427659A65ECA1E6 /* arrowList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FF47C58680F9B3D5D8F5 /* arrowList@2x.png */; };
 		71F0FE00882B317CF5B82AD8 /* iconList.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FFC0B80B49307A6645A8 /* iconList.png */; };
 		71F0FF3E4580A820171608CE /* playback_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F9B6D84EBCF2872D7465 /* playback_next@2x.png */; };
@@ -89,8 +92,6 @@
 		60881BE2180D5E5E00A7265F /* SPLMiPadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMiPadCell.m; sourceTree = "<group>"; };
 		60881BE4180D5FF700A7265F /* SPLMiPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMiPadViewController.h; sourceTree = "<group>"; };
 		60881BE5180D5FF700A7265F /* SPLMiPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMiPadViewController.m; sourceTree = "<group>"; };
-		60881BE7180D615B00A7265F /* SPLMCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMCamera.h; sourceTree = "<group>"; };
-		60881BE8180D615B00A7265F /* SPLMCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamera.m; sourceTree = "<group>"; };
 		6093590C17E19F3800D8E886 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		6093590E17E19F3F00D8E886 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
 		60B2FA8717E030E60070D98D /* Bishkek Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bishkek Live.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,19 +134,26 @@
 		71F0F1F029D770BA183B8498 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
 		71F0F26AECFA5B6154835F7A /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		71F0F28A240F2BA40A18783B /* playback_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_pause.png; sourceTree = "<group>"; };
+		71F0F3BE9EA01174DB4EF088 /* SPLMCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamera.m; sourceTree = "<group>"; };
+		71F0F47379C93DD0C295DAF4 /* SPLMCamerasProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamerasProxy.m; sourceTree = "<group>"; };
 		71F0F490227DD5FC6303B019 /* playback_rew@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_rew@2x.png"; sourceTree = "<group>"; };
 		71F0F552042CFF1EC91A364E /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieDecoder.h; sourceTree = "<group>"; };
 		71F0F5CA5F8141BDAC84BFB9 /* playback_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_play@2x.png"; sourceTree = "<group>"; };
+		71F0F606A459D568E74D7F64 /* SPLMCamerasProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMCamerasProxy.h; sourceTree = "<group>"; };
 		71F0F62FDA53FB6340A317FA /* playback_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_play.png; sourceTree = "<group>"; };
+		71F0F65D40573E0A0E709561 /* SPLMJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMJSONResponseSerializer.h; sourceTree = "<group>"; };
 		71F0F6A14C3AC566229E88B2 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
+		71F0F76C2519535AE4CCBF89 /* SPLMJSONResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMJSONResponseSerializer.m; sourceTree = "<group>"; };
 		71F0F796E21099710C533C23 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
 		71F0F88AC8E9F4BF5DAB3A31 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		71F0F94BE59F06AE4307F7DC /* iconList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconList@2x.png"; sourceTree = "<group>"; };
 		71F0F9B6D84EBCF2872D7465 /* playback_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_next@2x.png"; sourceTree = "<group>"; };
 		71F0FA363892C9F09E210360 /* SPLMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMCell.h; sourceTree = "<group>"; };
 		71F0FA6B02D2750073F37FDE /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
+		71F0FB125F93245E6FEED75F /* SPLMPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMPlace.h; sourceTree = "<group>"; };
 		71F0FB1BE2691810C856691C /* music_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_icon.png; sourceTree = "<group>"; };
 		71F0FBC2780F76322FDA3F98 /* sliderthumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderthumb.png; sourceTree = "<group>"; };
+		71F0FC2C32C5F353FCFF58A1 /* SPLMPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMPlace.m; sourceTree = "<group>"; };
 		71F0FC6E68157E100B734094 /* libkxmovie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libkxmovie.a; sourceTree = "<group>"; };
 		71F0FCB9753668D7A5AE07CF /* playback_rew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_rew.png; sourceTree = "<group>"; };
 		71F0FCC4DE57248600EA09F9 /* playback_prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_prev.png; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 		71F0FD96038657104FC812C8 /* playback_prev@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_prev@2x.png"; sourceTree = "<group>"; };
 		71F0FDCEDD0C0A238A0F550C /* KxMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieViewController.h; sourceTree = "<group>"; };
 		71F0FF47C58680F9B3D5D8F5 /* arrowList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowList@2x.png"; sourceTree = "<group>"; };
+		71F0FF8DB79F3C3FB70005BD /* SPLMCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMCamera.h; sourceTree = "<group>"; };
 		71F0FF9F83E42F067E2832A0 /* playback_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_pause@2x.png"; sourceTree = "<group>"; };
 		71F0FFC0B80B49307A6645A8 /* iconList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconList.png; sourceTree = "<group>"; };
 		9A6439D6450A4EA9B67EA0D8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,9 +282,9 @@
 				60881BE2180D5E5E00A7265F /* SPLMiPadCell.m */,
 				60881BE4180D5FF700A7265F /* SPLMiPadViewController.h */,
 				60881BE5180D5FF700A7265F /* SPLMiPadViewController.m */,
-				60881BE7180D615B00A7265F /* SPLMCamera.h */,
-				60881BE8180D615B00A7265F /* SPLMCamera.m */,
 				71F0F84D50DAC8D57A621AEC /* kxmovie */,
+				71F0F3E360FF60F8B18481AF /* Service */,
+				71F0FFA57AB40BAE6255EEFF /* Model */,
 			);
 			path = LiveBish;
 			sourceTree = "<group>";
@@ -311,6 +320,17 @@
 				60B2FAB717E030E70070D98D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		71F0F3E360FF60F8B18481AF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				71F0F47379C93DD0C295DAF4 /* SPLMCamerasProxy.m */,
+				71F0F606A459D568E74D7F64 /* SPLMCamerasProxy.h */,
+				71F0F76C2519535AE4CCBF89 /* SPLMJSONResponseSerializer.m */,
+				71F0F65D40573E0A0E709561 /* SPLMJSONResponseSerializer.h */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		71F0F600629226ABB5DD3AB9 /* kxmovie.bundle */ = {
@@ -350,6 +370,17 @@
 				71F0F1F029D770BA183B8498 /* KxAudioManager.h */,
 			);
 			path = kxmovie;
+			sourceTree = "<group>";
+		};
+		71F0FFA57AB40BAE6255EEFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71F0FF8DB79F3C3FB70005BD /* SPLMCamera.h */,
+				71F0F3BE9EA01174DB4EF088 /* SPLMCamera.m */,
+				71F0FC2C32C5F353FCFF58A1 /* SPLMPlace.m */,
+				71F0FB125F93245E6FEED75F /* SPLMPlace.h */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,8 +562,11 @@
 				60881BE6180D5FF700A7265F /* SPLMiPadViewController.m in Sources */,
 				60B2FAA717E030E70070D98D /* SPLMViewController.m in Sources */,
 				60881BE3180D5E5E00A7265F /* SPLMiPadCell.m in Sources */,
-				60881BE9180D615B00A7265F /* SPLMCamera.m in Sources */,
 				71F0F1AA24596C6F0B0EAB93 /* SPLMCell.m in Sources */,
+				71F0FDDB9414A51EDDE3760C /* SPLMCamerasProxy.m in Sources */,
+				71F0F7FB1D7A47852CE075D4 /* SPLMCamera.m in Sources */,
+				71F0F8B2DEB8508707994D7A /* SPLMPlace.m in Sources */,
+				71F0F8ED43C615CC1E395759 /* SPLMJSONResponseSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +701,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -694,6 +729,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
