@@ -10,8 +10,5 @@
 
 @interface SPLMViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property IBOutlet UITableView *tableView;
-@property IBOutlet UILabel *titleLabel;
-@property IBOutlet UILabel *spalmaloLabel;
-@property IBOutlet UILabel *copyrightLabel;
 
 @end

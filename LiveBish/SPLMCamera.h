@@ -14,4 +14,5 @@
 @property NSString *previewImageURL;
 
 +(NSArray*)bishkekCameras;
++(NSArray *)karaBaltaCameras;
 @end
