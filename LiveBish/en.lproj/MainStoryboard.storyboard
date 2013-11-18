@@ -57,13 +57,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oA6-p3-CUW">
+                                <rect key="frame" x="0.0" y="262" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9JN-Ou-dOx"/>
+                                    <constraint firstAttribute="width" constant="320" id="Ckv-0R-b6X"/>
+                                </constraints>
+                                <state key="normal" title="Прикоснитесь, что бы обновить">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="oA6-p3-CUW" secondAttribute="centerX" id="Aea-Zp-aPc"/>
                             <constraint firstItem="tVA-jX-3P3" firstAttribute="top" secondItem="Ph4-vq-INi" secondAttribute="top" id="HcE-4H-t7C"/>
                             <constraint firstAttribute="trailing" secondItem="tVA-jX-3P3" secondAttribute="trailing" id="bSp-k9-6SG"/>
                             <constraint firstItem="tVA-jX-3P3" firstAttribute="leading" secondItem="Ph4-vq-INi" secondAttribute="leading" id="bVb-xJ-Y7J"/>
                             <constraint firstItem="XJD-Vq-lne" firstAttribute="top" secondItem="tVA-jX-3P3" secondAttribute="bottom" id="gd3-Gq-mgd"/>
+                            <constraint firstAttribute="centerY" secondItem="oA6-p3-CUW" secondAttribute="centerY" id="vYx-yQ-Alo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Камеры" id="21G-uD-K80">
@@ -82,6 +95,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="refreshButton" destination="oA6-p3-CUW" id="9SS-HW-Kds"/>
                         <outlet property="tableView" destination="tVA-jX-3P3" id="9wo-K6-Ak8"/>
                     </connections>
                 </viewController>

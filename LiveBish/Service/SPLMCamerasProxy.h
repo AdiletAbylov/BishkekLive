@@ -9,7 +9,7 @@
 @protocol SPLMCamerasProxyDelegate <NSObject>
 - (void)camerasFetchSuccess:(NSArray *)cameras;
 
-- (void)camerasFailedError:(NSError *)error;
+- (void)camerasFailedError:(NSString *)errorString;
 @end
 
 @interface SPLMCamerasProxy : NSObject

@@ -13,6 +13,7 @@
 #import "KxMovieViewController.h"
 #import "SPLMCamerasProxy.h"
 #import "SPLMPlace.h"
+#import "SVProgressHUD.h"
 
 @interface SPLMViewController ()
 {
@@ -23,15 +24,29 @@
 @end
 
 @implementation SPLMViewController
+{
+@private
+    UIButton *_refreshButton;
+}
 
 @synthesize tableView = _tableView;
+
+@synthesize refreshButton = _refreshButton;
 
 - (void)viewDidLoad
 {
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [_refreshButton addTarget:self action:@selector(didTouchRefreshButton:) forControlEvents:UIControlEventTouchUpInside];
+    _refreshButton.hidden = YES;
     [super viewDidLoad];
     [self fetchCameras];
+}
+
+- (void)didTouchRefreshButton:(id)sender
+{
+    [self fetchCameras];
+    _refreshButton.hidden = YES;
 }
 
 - (void)fetchCameras
@@ -39,17 +54,29 @@
     _camerasProxy = [[SPLMCamerasProxy alloc] init];
     _camerasProxy.delegate = self;
     [_camerasProxy fetchCameras];
+    [SVProgressHUD show];
 }
 
 
-- (void)camerasFailedError:(NSError *)error
+- (void)camerasFailedError:(NSString *)errorString
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didHideHUD)
+                                                 name:SVProgressHUDDidDisappearNotification
+                                               object:nil];
+    [SVProgressHUD showErrorWithStatus:errorString];
+}
 
+- (void)didHideHUD
+{
+    _refreshButton.hidden = NO;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)camerasFetchSuccess:(NSArray *)cameras
 {
     _cameras = cameras;
+    [SVProgressHUD dismiss];
     [_tableView reloadData];
 }
 

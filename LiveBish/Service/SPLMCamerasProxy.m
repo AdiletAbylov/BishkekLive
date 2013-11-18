@@ -35,19 +35,29 @@
 
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        DCParserConfiguration *configuration = [DCParserConfiguration configuration];
-        DCArrayMapping *arrayMapping = [DCArrayMapping mapperForClassElements:[SPLMCamera class]
-                                                                 forAttribute:@"cameras"
-                                                                      onClass:[SPLMPlace class]];
-        [configuration addArrayMapper:arrayMapping];
-        DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:[SPLMPlace class]
-                                                                 andConfiguration:configuration];
-        NSArray *places = [parser parseArray:responseObject];
-        [_delegate camerasFetchSuccess:places];
-    }                                failure:^(AFHTTPRequestOperation *operation, NSError *error)
+        @try
+        {
+            DCParserConfiguration *configuration = [DCParserConfiguration configuration];
+            DCArrayMapping *arrayMapping = [DCArrayMapping mapperForClassElements:[SPLMCamera class]
+                                                                     forAttribute:@"cameras"
+                                                                          onClass:[SPLMPlace class]];
+            [configuration addArrayMapper:arrayMapping];
+            DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:[SPLMPlace class]
+                                                                     andConfiguration:configuration];
+            NSArray *places = [parser parseArray:responseObject];
+            [_delegate camerasFetchSuccess:places];
+
+        }
+        @catch (NSException *exception)
+        {
+            [_delegate camerasFailedError:@"Неподдерживаемый формат."];
+        }
+
+    }
+                                     failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
         NSLog(@"fetchCameras error: %@", error);
-        [_delegate camerasFailedError:error];
+        [_delegate camerasFailedError:@"Ошибка получения данных."];
     }];
 
     [operation start];

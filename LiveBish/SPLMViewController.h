@@ -11,5 +11,5 @@
 
 @interface SPLMViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, SPLMCamerasProxyDelegate>
 @property IBOutlet UITableView *tableView;
-
+@property IBOutlet UIButton *refreshButton;
 @end
