@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPLMCamerasProxy.h"
 
-@interface SPLMViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface SPLMViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, SPLMCamerasProxyDelegate>
 @property IBOutlet UITableView *tableView;
 
 @end

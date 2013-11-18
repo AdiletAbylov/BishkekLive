@@ -12,7 +12,4 @@
 @property NSString *title;
 @property NSString *videoURL;
 @property NSString *previewImageURL;
-
-+(NSArray*)bishkekCameras;
-+(NSArray *)karaBaltaCameras;
 @end
