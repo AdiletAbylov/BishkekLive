@@ -22,19 +22,12 @@
 @implementation SPLMViewController
 
 @synthesize tableView = _tableView;
-@synthesize titleLabel = _titleLabel;
-@synthesize spalmaloLabel = _spalmaloLabel;
-@synthesize copyrightLabel = _copyrightLabel;
 
 - (void)viewDidLoad
 {
-
-
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _cameras = [SPLMCamera bishkekCameras];
-    _spalmaloLabel.textColor = [UIColor colorWithRed:176.0 / 255.0 green:59.0 / 255.0 blue:0 alpha:1];
-    _copyrightLabel.textColor = [UIColor colorWithRed:159.0 / 255.0 green:159.0 / 255.0 blue:159.0 / 255.0 alpha:1];
+    _cameras = [NSArray arrayWithObjects:[SPLMCamera bishkekCameras], [SPLMCamera karaBaltaCameras], nil];
     [super viewDidLoad];
 }
 
@@ -44,23 +37,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return _cameras.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSArray *array = [_cameras objectAtIndex:section];
+    return array.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section)
+    {
+        case 0:
+            return @"г. Бишкек";
+        case 1:
+            return @"г. Кара-Балта";
+        default:
+            return nil;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SPLMCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    SPLMCamera *camera = [_cameras objectAtIndex:indexPath.row];
+    NSArray *cityCameras = [_cameras objectAtIndex:indexPath.section];
+    SPLMCamera *camera = [cityCameras objectAtIndex:indexPath.row];
     cell.titleLabel.text = camera.title;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SPLMCamera *camera = [_cameras objectAtIndex:indexPath.row];
-    NSURL *url = [[NSURL alloc] initWithString:camera.videoURL];
+    NSArray *cityCameras = [_cameras objectAtIndex:indexPath.section];
+    SPLMCamera *camera = [cityCameras objectAtIndex:indexPath.row];
     UIGraphicsBeginImageContext(CGSizeMake(1, 1));// workaround to remove error messages
     KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:camera.videoURL parameters:nil];
     controller.titleText = camera.title;

@@ -56,12 +56,16 @@
     camera9.title = @"Бишкек. Восток.";
     camera9.videoURL = @"http://212.42.103.42:1935/live/bishkekvostok.stream/playlist.m3u8";
 
-    SPLMCamera *camera10 = [SPLMCamera new];
-    camera10.title = @"Кара-Балта";
-    camera10.videoURL = @"http://212.42.103.42:1935/live/kb.stream/playlist.m3u8";
-
-
-    return [NSArray arrayWithObjects:camera1, camera2, camera3, camera4, camera5, camera6, camera7, camera8, camera9, camera10, nil];
+    return [NSArray arrayWithObjects:camera1, camera2, camera3, camera4, camera5, camera6, camera7, camera8, camera9, nil];
 }
+
++ (NSArray *)karaBaltaCameras
+{
+    SPLMCamera *camera1 = [SPLMCamera new];
+    camera1.title = @"Кара-Балта";
+    camera1.videoURL = @"http://212.42.103.42:1935/live/kb.stream/playlist.m3u8";
+    return [NSArray arrayWithObjects:camera1, nil];
+}
+
 @end
 
