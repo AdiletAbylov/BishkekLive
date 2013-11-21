@@ -14,6 +14,9 @@
 #import "SPLMCamerasProxy.h"
 #import "SPLMPlace.h"
 #import "SVProgressHUD.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface SPLMViewController ()
 {
@@ -119,6 +122,9 @@
     KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:camera.videoURL parameters:nil];
     controller.titleText = camera.title;
     [self presentViewController:controller animated:YES completion:nil];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Video Play View: %@", camera.title]];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     UIGraphicsEndImageContext();
 }
 
