@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPLMCamerasProxy.h"
 
-@interface SPLMViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface SPLMViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, SPLMCamerasProxyDelegate>
 @property IBOutlet UITableView *tableView;
-@property IBOutlet UILabel *titleLabel;
-@property IBOutlet UILabel *spalmaloLabel;
-@property IBOutlet UILabel *copyrightLabel;
-
+@property IBOutlet UIButton *refreshButton;
 @end

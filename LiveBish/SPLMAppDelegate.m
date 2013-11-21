@@ -7,12 +7,16 @@
 //
 
 #import "SPLMAppDelegate.h"
+#import "AFNetworkActivityIndicatorManager.h"
+#import "GAI.h"
 
 @implementation SPLMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-2148427-3"];
     return YES;
 }
 							

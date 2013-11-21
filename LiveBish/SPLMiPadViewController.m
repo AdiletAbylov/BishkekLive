@@ -36,7 +36,7 @@
 {
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    _cameras = [SPLMCamera bishkekCameras];
+
     [super viewDidLoad];
 }
 
