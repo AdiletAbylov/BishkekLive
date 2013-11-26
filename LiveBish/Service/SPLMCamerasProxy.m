@@ -15,6 +15,7 @@
 #import "SPLMJSONResponseSerializer.h"
 
 #define CAMERAS_URL @"https://dl.dropboxusercontent.com/s/avgj0ipai6tt70r/cameras"
+#define CAMERAS_TEST_URL @"https://dl.dropboxusercontent.com/s/kz2tfty228zxp4m/cameras_test"
 
 @implementation SPLMCamerasProxy
 {
@@ -26,7 +27,7 @@
 
 - (void)fetchCameras
 {
-    NSURL *url = [[NSURL alloc] initWithString:CAMERAS_URL];
+    NSURL *url = [[NSURL alloc] initWithString:CAMERAS_TEST_URL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
