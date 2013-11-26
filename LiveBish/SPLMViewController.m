@@ -17,6 +17,7 @@
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
+#import "SPLMImageViewController.h"
 
 @interface SPLMViewController ()
 {
@@ -45,6 +46,13 @@
     [super viewDidLoad];
     [self fetchCameras];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
+}
+
 
 - (void)didTouchRefreshButton:(id)sender
 {
@@ -118,13 +126,32 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SPLMCamera *camera = [self cameraForIndexPath:indexPath];
-    UIGraphicsBeginImageContext(CGSizeMake(1, 1));// workaround to remove error messages
-    KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:camera.videoURL parameters:nil];
-    controller.titleText = camera.title;
-    [self presentViewController:controller animated:YES completion:nil];
+    if(camera.sourceType == CameraSourceTypeVideo)
+    {
+        [self showVideoPlayerForUrl:camera.videoURL title:camera.title];
+    } else
+    {
+        [self performSegueWithIdentifier:@"ImageSegue" sender:self];
+    }
+
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Video Play View: %@", camera.title]];
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SPLMImageViewController *controller = segue.destinationViewController;
+    controller.camera = [self cameraForIndexPath:[_tableView indexPathForSelectedRow]];
+}
+
+- (void)showVideoPlayerForUrl:(NSString *)url title:(NSString *)title
+{
+    UIGraphicsBeginImageContext(CGSizeMake(1, 1));// workaround to remove error messages
+    KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:url parameters:nil];
+    controller.titleText = title;
+    [self presentViewController:controller animated:YES completion:nil];
     UIGraphicsEndImageContext();
 }
 

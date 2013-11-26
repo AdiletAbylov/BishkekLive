@@ -63,6 +63,7 @@
 		71F0FD7652E3C89D624A2595 /* playback_ff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F09C4B6682FE1F8F6AD5 /* playback_ff@2x.png */; };
 		71F0FDBED56DD3EB7D3CDE7B /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F0FA6B02D2750073F37FDE /* libavcodec.a */; };
 		71F0FDDB9414A51EDDE3760C /* SPLMCamerasProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F47379C93DD0C295DAF4 /* SPLMCamerasProxy.m */; };
+		71F0FDE9FD90C0EFD8986945 /* SPLMImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F41D242D045945D5E1EB /* SPLMImageViewController.m */; };
 		71F0FDFA5427659A65ECA1E6 /* arrowList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FF47C58680F9B3D5D8F5 /* arrowList@2x.png */; };
 		71F0FE00882B317CF5B82AD8 /* iconList.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FFC0B80B49307A6645A8 /* iconList.png */; };
 		71F0FF3E4580A820171608CE /* playback_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F9B6D84EBCF2872D7465 /* playback_next@2x.png */; };
@@ -135,6 +136,7 @@
 		71F0F26AECFA5B6154835F7A /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		71F0F28A240F2BA40A18783B /* playback_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_pause.png; sourceTree = "<group>"; };
 		71F0F3BE9EA01174DB4EF088 /* SPLMCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamera.m; sourceTree = "<group>"; };
+		71F0F41D242D045945D5E1EB /* SPLMImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMImageViewController.m; sourceTree = "<group>"; };
 		71F0F47379C93DD0C295DAF4 /* SPLMCamerasProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamerasProxy.m; sourceTree = "<group>"; };
 		71F0F490227DD5FC6303B019 /* playback_rew@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_rew@2x.png"; sourceTree = "<group>"; };
 		71F0F552042CFF1EC91A364E /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieDecoder.h; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		71F0FD96038657104FC812C8 /* playback_prev@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_prev@2x.png"; sourceTree = "<group>"; };
 		71F0FDCEDD0C0A238A0F550C /* KxMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieViewController.h; sourceTree = "<group>"; };
 		71F0FF47C58680F9B3D5D8F5 /* arrowList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowList@2x.png"; sourceTree = "<group>"; };
+		71F0FF65E18E423306B4D6E5 /* SPLMImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMImageViewController.h; sourceTree = "<group>"; };
 		71F0FF8DB79F3C3FB70005BD /* SPLMCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMCamera.h; sourceTree = "<group>"; };
 		71F0FF9F83E42F067E2832A0 /* playback_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_pause@2x.png"; sourceTree = "<group>"; };
 		71F0FFC0B80B49307A6645A8 /* iconList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconList.png; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				71F0F84D50DAC8D57A621AEC /* kxmovie */,
 				71F0F3E360FF60F8B18481AF /* Service */,
 				71F0FFA57AB40BAE6255EEFF /* Model */,
+				71F0F41D242D045945D5E1EB /* SPLMImageViewController.m */,
+				71F0FF65E18E423306B4D6E5 /* SPLMImageViewController.h */,
 			);
 			path = LiveBish;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				71F0F7FB1D7A47852CE075D4 /* SPLMCamera.m in Sources */,
 				71F0F8B2DEB8508707994D7A /* SPLMPlace.m in Sources */,
 				71F0F8ED43C615CC1E395759 /* SPLMJSONResponseSerializer.m in Sources */,
+				71F0FDE9FD90C0EFD8986945 /* SPLMImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
