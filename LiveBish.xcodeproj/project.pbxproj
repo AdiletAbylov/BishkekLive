@@ -48,6 +48,7 @@
 		71F0F2E6DA064D64991E76D6 /* arrowList.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F04413DAAAEA2974B680 /* arrowList.png */; };
 		71F0F33BEA2C31B45DC5A09E /* libkxmovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F0FC6E68157E100B734094 /* libkxmovie.a */; };
 		71F0F45C20CA75CB685F461E /* playback_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FF9F83E42F067E2832A0 /* playback_pause@2x.png */; };
+		71F0F4B5E9335B9241718BBC /* SPLMCamerasDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F4069FA08346ED6FC776 /* SPLMCamerasDataSource.m */; };
 		71F0F5B3B7B0DDE3ACE67645 /* playback_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F28A240F2BA40A18783B /* playback_pause.png */; };
 		71F0F6A2E9E9C8B020111F17 /* sliderthumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F17245764E3BF0A408CC /* sliderthumb@2x.png */; };
 		71F0F7B617CAFF643D2C9457 /* sliderthumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FBC2780F76322FDA3F98 /* sliderthumb.png */; };
@@ -133,9 +134,11 @@
 		71F0F0C40DFB0A7CC2683F0D /* playback_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_next.png; sourceTree = "<group>"; };
 		71F0F17245764E3BF0A408CC /* sliderthumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sliderthumb@2x.png"; sourceTree = "<group>"; };
 		71F0F1F029D770BA183B8498 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
+		71F0F2579C36E38391C2502A /* SPLMCamerasDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMCamerasDataSource.h; sourceTree = "<group>"; };
 		71F0F26AECFA5B6154835F7A /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		71F0F28A240F2BA40A18783B /* playback_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_pause.png; sourceTree = "<group>"; };
 		71F0F3BE9EA01174DB4EF088 /* SPLMCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamera.m; sourceTree = "<group>"; };
+		71F0F4069FA08346ED6FC776 /* SPLMCamerasDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamerasDataSource.m; sourceTree = "<group>"; };
 		71F0F41D242D045945D5E1EB /* SPLMImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMImageViewController.m; sourceTree = "<group>"; };
 		71F0F47379C93DD0C295DAF4 /* SPLMCamerasProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamerasProxy.m; sourceTree = "<group>"; };
 		71F0F490227DD5FC6303B019 /* playback_rew@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_rew@2x.png"; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 				71F0F3BE9EA01174DB4EF088 /* SPLMCamera.m */,
 				71F0FC2C32C5F353FCFF58A1 /* SPLMPlace.m */,
 				71F0FB125F93245E6FEED75F /* SPLMPlace.h */,
+				71F0F4069FA08346ED6FC776 /* SPLMCamerasDataSource.m */,
+				71F0F2579C36E38391C2502A /* SPLMCamerasDataSource.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 				71F0F8B2DEB8508707994D7A /* SPLMPlace.m in Sources */,
 				71F0F8ED43C615CC1E395759 /* SPLMJSONResponseSerializer.m in Sources */,
 				71F0FDE9FD90C0EFD8986945 /* SPLMImageViewController.m in Sources */,
+				71F0F4B5E9335B9241718BBC /* SPLMCamerasDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,7 +701,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiveBish/LiveBish-Prefix.pch";
 				INFOPLIST_FILE = "LiveBish/LiveBish-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"${PROJECT_DIR}/LiveBish/kxmovie\"/**",
 					"\"${PROJECT_DIR}/LiveBish/kxmovie\"/**",
@@ -707,7 +713,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -724,7 +730,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiveBish/LiveBish-Prefix.pch";
 				INFOPLIST_FILE = "LiveBish/LiveBish-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"${PROJECT_DIR}/LiveBish/kxmovie\"/**",
 					"\"${PROJECT_DIR}/LiveBish/kxmovie\"/**",
@@ -736,7 +742,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
