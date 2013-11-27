@@ -18,10 +18,11 @@
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
 #import "SPLMImageViewController.h"
+#import "SPLMCamerasDataSource.h"
 
 @interface SPLMViewController ()
 {
-    NSArray *_cameras;
+    SPLMCamerasDataSource *_camerasDataSource;
     SPLMCamerasProxy *_camerasProxy;
 }
 
@@ -39,8 +40,10 @@
 
 - (void)viewDidLoad
 {
+    _camerasDataSource = [SPLMCamerasDataSource new];
     _tableView.delegate = self;
-    _tableView.dataSource = self;
+    _tableView.dataSource = _camerasDataSource;
+
     [_refreshButton addTarget:self action:@selector(didTouchRefreshButton:) forControlEvents:UIControlEventTouchUpInside];
     _refreshButton.hidden = YES;
     [super viewDidLoad];
@@ -86,7 +89,7 @@
 
 - (void)camerasFetchSuccess:(NSArray *)cameras
 {
-    _cameras = cameras;
+    _camerasDataSource.cameras = cameras;
     [SVProgressHUD dismiss];
     [_tableView reloadData];
 }
@@ -98,35 +101,10 @@
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return _cameras.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    SPLMPlace *place = [_cameras objectAtIndex:section];
-    return place.cameras.count;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    SPLMPlace *place = [_cameras objectAtIndex:section];
-    return place.placeName;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    SPLMCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    SPLMCamera *camera = [self cameraForIndexPath:indexPath];
-    cell.titleLabel.text = camera.title;
-    return cell;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SPLMCamera *camera = [self cameraForIndexPath:indexPath];
-    if(camera.sourceType == CameraSourceTypeVideo)
+    SPLMCamera *camera = [_camerasDataSource cameraForIndexPath:indexPath];
+    if (camera.sourceType == CameraSourceTypeVideo)
     {
         [self showVideoPlayerForUrl:camera.videoURL title:camera.title];
     } else
@@ -143,7 +121,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SPLMImageViewController *controller = segue.destinationViewController;
-    controller.camera = [self cameraForIndexPath:[_tableView indexPathForSelectedRow]];
+    controller.camera = [_camerasDataSource cameraForIndexPath:[_tableView indexPathForSelectedRow]];
 }
 
 - (void)showVideoPlayerForUrl:(NSString *)url title:(NSString *)title
@@ -155,12 +133,6 @@
     UIGraphicsEndImageContext();
 }
 
-- (SPLMCamera *)cameraForIndexPath:(NSIndexPath *)indexPath
-{
-    SPLMPlace *place = [_cameras objectAtIndex:indexPath.section];
-    NSArray *cityCameras = place.cameras;
-    return [cityCameras objectAtIndex:indexPath.row];
-}
 
 - (NSUInteger)supportedInterfaceOrientations
 {
