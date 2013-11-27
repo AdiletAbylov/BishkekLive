@@ -13,6 +13,7 @@
 @property (weak) IBOutlet UIImageView *imageView;
 @property SPLMCamera *camera;
 @property (weak) IBOutlet UINavigationBar *navBar;
+@property (weak) IBOutlet UIBarButtonItem *doneItem;
 -(IBAction)didTouchDone:(id)sender;
 -(IBAction)didTouchRefresh:(id)sender;
 

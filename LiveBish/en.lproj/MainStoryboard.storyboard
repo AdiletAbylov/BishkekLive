@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="VXp-NO-P3Z">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
@@ -109,7 +109,7 @@
         <!--Image View Controller-->
         <scene sceneID="Zq8-6M-xOk">
             <objects>
-                <viewController id="XHR-ce-yIy" customClass="SPLMImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageViewController" id="XHR-ce-yIy" customClass="SPLMImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1hG-G6-BU4"/>
                         <viewControllerLayoutGuide type="bottom" id="yLV-T0-tlP"/>
@@ -155,6 +155,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="doneItem" destination="9fa-t3-opH" id="y2B-Pd-t9F"/>
                         <outlet property="imageView" destination="bld-Wt-bN2" id="xPK-53-NJV"/>
                         <outlet property="navBar" destination="lp0-h5-sua" id="yl3-jo-Kja"/>
                     </connections>

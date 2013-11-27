@@ -10,8 +10,6 @@
 		6050562417E97C2C00F61E55 /* Helvetica LT 25 Ultra Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6050562317E97C2C00F61E55 /* Helvetica LT 25 Ultra Light.ttf */; };
 		60581F2617EAFF72002E1A2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60581F2517EAFF72002E1A2D /* Images.xcassets */; };
 		60881BE0180D548D00A7265F /* MainStoryboard-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60881BDF180D548D00A7265F /* MainStoryboard-iPad.storyboard */; };
-		60881BE3180D5E5E00A7265F /* SPLMiPadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60881BE2180D5E5E00A7265F /* SPLMiPadCell.m */; };
-		60881BE6180D5FF700A7265F /* SPLMiPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60881BE5180D5FF700A7265F /* SPLMiPadViewController.m */; };
 		6093590D17E19F3800D8E886 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6093590C17E19F3800D8E886 /* appIcon.png */; };
 		6093590F17E19F3F00D8E886 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6093590E17E19F3F00D8E886 /* appIcon@2x.png */; };
 		60B2FA8B17E030E60070D98D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B2FA8A17E030E60070D98D /* UIKit.framework */; };
@@ -43,6 +41,7 @@
 		71F0F02748870E2C95DE1C44 /* music_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FB1BE2691810C856691C /* music_icon.png */; };
 		71F0F065CEFAFC8BCDDFEF31 /* playback_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F62FDA53FB6340A317FA /* playback_play.png */; };
 		71F0F0B97E9634330B6A2105 /* playback_prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FCC4DE57248600EA09F9 /* playback_prev.png */; };
+		71F0F177BF88993C0227A9B1 /* SPLMiPadRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F0858C611D521748629A /* SPLMiPadRightViewController.m */; };
 		71F0F1AA24596C6F0B0EAB93 /* SPLMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0FD6E3A1C047A34CF0EC4 /* SPLMCell.m */; };
 		71F0F1D011DA524A70DCA056 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F0F796E21099710C533C23 /* libavformat.a */; };
 		71F0F2E6DA064D64991E76D6 /* arrowList.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F04413DAAAEA2974B680 /* arrowList.png */; };
@@ -50,9 +49,11 @@
 		71F0F45C20CA75CB685F461E /* playback_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FF9F83E42F067E2832A0 /* playback_pause@2x.png */; };
 		71F0F4B5E9335B9241718BBC /* SPLMCamerasDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F4069FA08346ED6FC776 /* SPLMCamerasDataSource.m */; };
 		71F0F5B3B7B0DDE3ACE67645 /* playback_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F28A240F2BA40A18783B /* playback_pause.png */; };
+		71F0F6003B7E880087DD6F7E /* SPLMSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F1730D259F73FC61DE4F /* SPLMSplitViewController.m */; };
 		71F0F6A2E9E9C8B020111F17 /* sliderthumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F17245764E3BF0A408CC /* sliderthumb@2x.png */; };
 		71F0F7B617CAFF643D2C9457 /* sliderthumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0FBC2780F76322FDA3F98 /* sliderthumb.png */; };
 		71F0F7FB1D7A47852CE075D4 /* SPLMCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F3BE9EA01174DB4EF088 /* SPLMCamera.m */; };
+		71F0F80CE223A34CA5F7512B /* SPLMiPadLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F4D1E18453D4D1686F86 /* SPLMiPadLeftViewController.m */; };
 		71F0F8B2DEB8508707994D7A /* SPLMPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0FC2C32C5F353FCFF58A1 /* SPLMPlace.m */; };
 		71F0F8BDF74E955D50A0C0F8 /* playback_next.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F0F0C40DFB0A7CC2683F0D /* playback_next.png */; };
 		71F0F8ED43C615CC1E395759 /* SPLMJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0F76C2519535AE4CCBF89 /* SPLMJSONResponseSerializer.m */; };
@@ -90,10 +91,6 @@
 		6050562317E97C2C00F61E55 /* Helvetica LT 25 Ultra Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica LT 25 Ultra Light.ttf"; sourceTree = "<group>"; };
 		60581F2517EAFF72002E1A2D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Bishkek Live/Images.xcassets"; sourceTree = "<group>"; };
 		60881BDF180D548D00A7265F /* MainStoryboard-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-iPad.storyboard"; sourceTree = "<group>"; };
-		60881BE1180D5E5E00A7265F /* SPLMiPadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMiPadCell.h; sourceTree = "<group>"; };
-		60881BE2180D5E5E00A7265F /* SPLMiPadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMiPadCell.m; sourceTree = "<group>"; };
-		60881BE4180D5FF700A7265F /* SPLMiPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMiPadViewController.h; sourceTree = "<group>"; };
-		60881BE5180D5FF700A7265F /* SPLMiPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMiPadViewController.m; sourceTree = "<group>"; };
 		6093590C17E19F3800D8E886 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		6093590E17E19F3F00D8E886 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
 		60B2FA8717E030E60070D98D /* Bishkek Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bishkek Live.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,9 +127,11 @@
 		60FEE1FD1836309400D5E775 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		60FEE1FF183630D500D5E775 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		71F0F04413DAAAEA2974B680 /* arrowList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowList.png; sourceTree = "<group>"; };
+		71F0F0858C611D521748629A /* SPLMiPadRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMiPadRightViewController.m; sourceTree = "<group>"; };
 		71F0F09C4B6682FE1F8F6AD5 /* playback_ff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_ff@2x.png"; sourceTree = "<group>"; };
 		71F0F0C40DFB0A7CC2683F0D /* playback_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_next.png; sourceTree = "<group>"; };
 		71F0F17245764E3BF0A408CC /* sliderthumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sliderthumb@2x.png"; sourceTree = "<group>"; };
+		71F0F1730D259F73FC61DE4F /* SPLMSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMSplitViewController.m; sourceTree = "<group>"; };
 		71F0F1F029D770BA183B8498 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
 		71F0F2579C36E38391C2502A /* SPLMCamerasDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMCamerasDataSource.h; sourceTree = "<group>"; };
 		71F0F26AECFA5B6154835F7A /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
@@ -142,14 +141,17 @@
 		71F0F41D242D045945D5E1EB /* SPLMImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMImageViewController.m; sourceTree = "<group>"; };
 		71F0F47379C93DD0C295DAF4 /* SPLMCamerasProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMCamerasProxy.m; sourceTree = "<group>"; };
 		71F0F490227DD5FC6303B019 /* playback_rew@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_rew@2x.png"; sourceTree = "<group>"; };
+		71F0F4D1E18453D4D1686F86 /* SPLMiPadLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMiPadLeftViewController.m; sourceTree = "<group>"; };
 		71F0F552042CFF1EC91A364E /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieDecoder.h; sourceTree = "<group>"; };
 		71F0F5CA5F8141BDAC84BFB9 /* playback_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_play@2x.png"; sourceTree = "<group>"; };
+		71F0F5CA9AEF33D48A6B7971 /* SPLMSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMSplitViewController.h; sourceTree = "<group>"; };
 		71F0F606A459D568E74D7F64 /* SPLMCamerasProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMCamerasProxy.h; sourceTree = "<group>"; };
 		71F0F62FDA53FB6340A317FA /* playback_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_play.png; sourceTree = "<group>"; };
 		71F0F65D40573E0A0E709561 /* SPLMJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMJSONResponseSerializer.h; sourceTree = "<group>"; };
 		71F0F6A14C3AC566229E88B2 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
 		71F0F76C2519535AE4CCBF89 /* SPLMJSONResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMJSONResponseSerializer.m; sourceTree = "<group>"; };
 		71F0F796E21099710C533C23 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
+		71F0F86541310145B853F705 /* SPLMiPadLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMiPadLeftViewController.h; sourceTree = "<group>"; };
 		71F0F88AC8E9F4BF5DAB3A31 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		71F0F94BE59F06AE4307F7DC /* iconList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconList@2x.png"; sourceTree = "<group>"; };
 		71F0F9B6D84EBCF2872D7465 /* playback_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playback_next@2x.png"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		71F0FB125F93245E6FEED75F /* SPLMPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMPlace.h; sourceTree = "<group>"; };
 		71F0FB1BE2691810C856691C /* music_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_icon.png; sourceTree = "<group>"; };
 		71F0FBC2780F76322FDA3F98 /* sliderthumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderthumb.png; sourceTree = "<group>"; };
+		71F0FBC293B556D7BE75B42E /* SPLMiPadRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLMiPadRightViewController.h; sourceTree = "<group>"; };
 		71F0FC2C32C5F353FCFF58A1 /* SPLMPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLMPlace.m; sourceTree = "<group>"; };
 		71F0FC6E68157E100B734094 /* libkxmovie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libkxmovie.a; sourceTree = "<group>"; };
 		71F0FCB9753668D7A5AE07CF /* playback_rew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_rew.png; sourceTree = "<group>"; };
@@ -284,15 +287,12 @@
 				71F0FD6E3A1C047A34CF0EC4 /* SPLMCell.m */,
 				71F0FA363892C9F09E210360 /* SPLMCell.h */,
 				60881BDF180D548D00A7265F /* MainStoryboard-iPad.storyboard */,
-				60881BE1180D5E5E00A7265F /* SPLMiPadCell.h */,
-				60881BE2180D5E5E00A7265F /* SPLMiPadCell.m */,
-				60881BE4180D5FF700A7265F /* SPLMiPadViewController.h */,
-				60881BE5180D5FF700A7265F /* SPLMiPadViewController.m */,
 				71F0F84D50DAC8D57A621AEC /* kxmovie */,
 				71F0F3E360FF60F8B18481AF /* Service */,
 				71F0FFA57AB40BAE6255EEFF /* Model */,
 				71F0F41D242D045945D5E1EB /* SPLMImageViewController.m */,
 				71F0FF65E18E423306B4D6E5 /* SPLMImageViewController.h */,
+				71F0FA4F66CCC1A084131DDF /* iPad */,
 			);
 			path = LiveBish;
 			sourceTree = "<group>";
@@ -378,6 +378,19 @@
 				71F0F1F029D770BA183B8498 /* KxAudioManager.h */,
 			);
 			path = kxmovie;
+			sourceTree = "<group>";
+		};
+		71F0FA4F66CCC1A084131DDF /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				71F0F5CA9AEF33D48A6B7971 /* SPLMSplitViewController.h */,
+				71F0F1730D259F73FC61DE4F /* SPLMSplitViewController.m */,
+				71F0F4D1E18453D4D1686F86 /* SPLMiPadLeftViewController.m */,
+				71F0F86541310145B853F705 /* SPLMiPadLeftViewController.h */,
+				71F0F0858C611D521748629A /* SPLMiPadRightViewController.m */,
+				71F0FBC293B556D7BE75B42E /* SPLMiPadRightViewController.h */,
+			);
+			path = iPad;
 			sourceTree = "<group>";
 		};
 		71F0FFA57AB40BAE6255EEFF /* Model */ = {
@@ -569,9 +582,7 @@
 			files = (
 				60B2FA9717E030E60070D98D /* main.m in Sources */,
 				60B2FA9B17E030E60070D98D /* SPLMAppDelegate.m in Sources */,
-				60881BE6180D5FF700A7265F /* SPLMiPadViewController.m in Sources */,
 				60B2FAA717E030E70070D98D /* SPLMViewController.m in Sources */,
-				60881BE3180D5E5E00A7265F /* SPLMiPadCell.m in Sources */,
 				71F0F1AA24596C6F0B0EAB93 /* SPLMCell.m in Sources */,
 				71F0FDDB9414A51EDDE3760C /* SPLMCamerasProxy.m in Sources */,
 				71F0F7FB1D7A47852CE075D4 /* SPLMCamera.m in Sources */,
@@ -579,6 +590,9 @@
 				71F0F8ED43C615CC1E395759 /* SPLMJSONResponseSerializer.m in Sources */,
 				71F0FDE9FD90C0EFD8986945 /* SPLMImageViewController.m in Sources */,
 				71F0F4B5E9335B9241718BBC /* SPLMCamerasDataSource.m in Sources */,
+				71F0F6003B7E880087DD6F7E /* SPLMSplitViewController.m in Sources */,
+				71F0F80CE223A34CA5F7512B /* SPLMiPadLeftViewController.m in Sources */,
+				71F0F177BF88993C0227A9B1 /* SPLMiPadRightViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

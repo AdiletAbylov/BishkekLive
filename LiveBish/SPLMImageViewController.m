@@ -16,12 +16,15 @@
     __weak UIImageView *_imageView;
     SPLMCamera *_camera;
     __weak UINavigationBar *_navBar;
+    __weak UIBarButtonItem *_doneItem;
 }
 @synthesize imageView = _imageView;
 
 @synthesize camera = _camera;
 
 @synthesize navBar = _navBar;
+
+@synthesize doneItem = _doneItem;
 
 - (void)viewDidLoad
 {
