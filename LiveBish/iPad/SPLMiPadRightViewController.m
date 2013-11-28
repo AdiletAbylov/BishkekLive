@@ -4,8 +4,10 @@
 //
 
 
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
 #import "SPLMiPadRightViewController.h"
-#import "SPLMCamera.h"
 #import "KxMovieViewController.h"
 #import "SPLMImageViewController.h"
 
@@ -15,6 +17,8 @@
     UIView *_currentView;
     KxMovieViewController *_movieViewController;
     SPLMImageViewController *_imageViewController;
+@private
+
 }
 
 - (void)didSelectCamera:(SPLMCamera *)camera
@@ -31,6 +35,9 @@
     {
         [self showImageViewerForCamera:camera];
     }
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Video Play View: %@", camera.title]];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)showVideoPlayerForUrl:(NSString *)url title:(NSString *)title
@@ -63,7 +70,7 @@
     }
     if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
     {
-        return YES;
+        return _currentView;
     }
 }
 

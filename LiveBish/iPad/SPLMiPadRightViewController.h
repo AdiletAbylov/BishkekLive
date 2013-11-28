@@ -8,5 +8,6 @@
 #import "SPLMiPadLeftViewController.h"
 
 
-@interface SPLMiPadRightViewController : UIViewController<SPLMiPadLeftViewControllerDelegate, UISplitViewControllerDelegate>
+@interface SPLMiPadRightViewController : UIViewController <SPLMiPadLeftViewControllerDelegate, UISplitViewControllerDelegate>
+
 @end
