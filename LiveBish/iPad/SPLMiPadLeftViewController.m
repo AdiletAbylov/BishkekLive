@@ -21,8 +21,18 @@
     SPLMCamerasProxy *_camerasProxy;
 
 
+@private
+    __weak id <SPLMiPadLeftViewControllerDelegate> _delegate;
+    __weak UITableView *_tableView;
+    __weak UINavigationBar *_nabVar;
 }
 
+
+@synthesize delegate = _delegate;
+
+@synthesize tableView = _tableView;
+
+@synthesize nabVar = _nabVar;
 
 - (void)fetchCameras
 {
@@ -32,14 +42,18 @@
 - (void)viewDidLoad
 {
     _camerasDataSource = [SPLMCamerasDataSource new];
+    _nabVar.bounds = (CGRect){_nabVar.frame.origin, _nabVar.frame.size.width, 64};
+    _tableView.delegate = self;
+    _tableView.dataSource = _camerasDataSource;
 
-    self.tableView.delegate = self;
-    self.tableView.dataSource = _camerasDataSource;
+
     _camerasProxy = [SPLMCamerasProxy new];
     _camerasProxy.delegate = self;
     [self fetchCameras];
     [super viewDidLoad];
 }
+
+
 
 - (void)camerasFailedError:(NSString *)errorString
 {
@@ -49,7 +63,7 @@
 - (void)camerasFetchSuccess:(NSArray *)cameras
 {
     _camerasDataSource.cameras = cameras;
-    [self.tableView reloadData];
+    [_tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

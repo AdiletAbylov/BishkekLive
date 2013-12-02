@@ -14,6 +14,8 @@
 - (void)didSelectCamera:(SPLMCamera *)camera;
 @end
 
-@interface SPLMiPadLeftViewController : UITableViewController <SPLMCamerasProxyDelegate>
+@interface SPLMiPadLeftViewController : UIViewController <SPLMCamerasProxyDelegate, UITableViewDelegate>
+@property(weak) IBOutlet UITableView *tableView;
+@property (weak) IBOutlet UINavigationBar *nabVar;
 @property(weak) id <SPLMiPadLeftViewControllerDelegate> delegate;
 @end
