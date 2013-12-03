@@ -741,7 +741,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiveBish/LiveBish-Prefix.pch";
 				INFOPLIST_FILE = "LiveBish/LiveBish-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"${PROJECT_DIR}/LiveBish/kxmovie\"/**",
 					"\"${PROJECT_DIR}/LiveBish/kxmovie\"/**",
@@ -770,7 +770,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiveBish/LiveBish-Prefix.pch";
 				INFOPLIST_FILE = "LiveBish/LiveBish-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"${PROJECT_DIR}/LiveBish/kxmovie\"/**",
 					"\"${PROJECT_DIR}/LiveBish/kxmovie\"/**",
