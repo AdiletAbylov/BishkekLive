@@ -9,7 +9,5 @@
 #import "SPLMiPadLeftViewController.h"
 
 
-@interface SPLMiPadRightViewController : UIViewController
-- (void)selectCamera:(SPLMCamera *)camera;
-@property UIView *currentView;
+@interface SPLMiPadMainViewController : UIViewController<MGSplitViewControllerDelegate, SPLMiPadLeftViewControllerDelegate>
 @end

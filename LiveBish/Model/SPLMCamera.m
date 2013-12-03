@@ -31,7 +31,13 @@
             _sourceType = CameraSourceTypeVideo;
         } else
         {
-            _sourceType = CameraSourceTypeImage;
+            if ([_type isEqualToString:@"imageOrlovka"])
+            {
+                _sourceType = CameraSourceTypeImageOrlovka;
+            } else
+            {
+                _sourceType = CameraSourceTypeImage;
+            }
         }
     }
     return _sourceType;

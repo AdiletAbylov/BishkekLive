@@ -21,7 +21,9 @@
 
 }
 
-- (void)didSelectCamera:(SPLMCamera *)camera
+@synthesize currentView = _currentView;
+
+- (void)selectCamera:(SPLMCamera *)camera
 {
     if (_currentView)
     {
@@ -50,6 +52,7 @@
     [self.view addSubview:_movieViewController.view];
     UIGraphicsEndImageContext();
     _currentView = _movieViewController.view;
+    _currentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 }
 
 - (void)showImageViewerForCamera:(SPLMCamera *)camera
@@ -60,33 +63,8 @@
     _imageViewController.doneItem.enabled = NO;
     [self.view addSubview:_imageViewController.view];
     _currentView = _imageViewController.view;
+    _currentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 }
 
-- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
-{
-    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown)
-    {
-        return NO;
-    }
-    if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
-    {
-        return _currentView;
-    }
-}
-
-- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
-{
-
-}
-
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    [UIView animateWithDuration:duration animations:^
-    {
-        _currentView.frame = (CGRect) {0, 0, self.view.frame.size};
-    }];
-}
 
 @end
