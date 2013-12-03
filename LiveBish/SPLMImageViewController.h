@@ -5,11 +5,12 @@
 
 
 #import <Foundation/Foundation.h>
+#import "SPLMOrlovkaCameraProxy.h"
 
 @class SPLMCamera;
 
 
-@interface SPLMImageViewController : UIViewController
+@interface SPLMImageViewController : UIViewController <SPLMImageProxyDelegate>
 @property (weak) IBOutlet UIImageView *imageView;
 @property SPLMCamera *camera;
 @property (weak) IBOutlet UINavigationBar *navBar;

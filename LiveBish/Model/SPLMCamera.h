@@ -11,7 +11,8 @@
 typedef enum CameraSourceType
 {
     CameraSourceTypeVideo,
-    CameraSourceTypeImage
+    CameraSourceTypeImage,
+    CameraSourceTypeImageOrlovka
 
 } CameraSourceType;
 

@@ -8,9 +8,11 @@
 #import "SPLMImageViewController.h"
 #import "SPLMCamera.h"
 #import "UIImageView+AFNetworking.h"
+#import "SPLMOrlovkaCameraProxy.h"
 
 @implementation SPLMImageViewController
 {
+    SPLMOrlovkaCameraProxy *_orlovkaCameraProxy;
 
 @private
     __weak UIImageView *_imageView;
@@ -29,16 +31,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadImage];
+
+    [self loadImageFromURL:_camera.previewImageURL];
     _navBar.topItem.title = _camera.title;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
+
+    [self loadFromSource];
 }
 
-- (void)loadImage
+- (void)loadFromSource
 {
-    NSInteger randInt = abs(arc4random());
-    NSString *randString = [NSString stringWithFormat:@"%@?%i", _camera.previewImageURL, randInt];
-    NSURL *url = [[NSURL alloc] initWithString:randString];
+    if (_camera.sourceType == CameraSourceTypeImageOrlovka)
+    {
+        [self getOrlovkaImageURL];
+    } else
+    {
+        [self loadImageFromURL:_camera.previewImageURL];
+    }
+}
+
+- (void)getOrlovkaImageURL
+{
+    _orlovkaCameraProxy = [SPLMOrlovkaCameraProxy new];
+    _orlovkaCameraProxy.delegate = self;
+    [_orlovkaCameraProxy getImageURLFromURL:_camera.previewImageURL];
+}
+
+- (void)imageProxySuccessWithURL:(NSString *)url
+{
+    [SVProgressHUD show];
+    [self loadImageFromURL:url];
+}
+
+- (void)imageProxyErrorWithMessage:(NSString *)url
+{
+    [SVProgressHUD showErrorWithStatus:url];
+}
+
+- (void)loadImageFromURL:(NSString *)urlString
+{
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
     [SVProgressHUD show];
     [_imageView setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image)
@@ -61,7 +93,7 @@
 
 - (IBAction)didTouchRefresh:(id)sender
 {
-    [self loadImage];
+    [self loadFromSource];
 }
 
 
