@@ -7,21 +7,33 @@
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
 #import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
-#import "SPLMiPadRightViewController.h"
+#import "SPLMiPadDetailsViewController.h"
 #import "KxMovieViewController.h"
 #import "SPLMImageViewController.h"
+#import "SPLMAboutTextProxy.h"
 
 
-@implementation SPLMiPadRightViewController
+@implementation SPLMiPadDetailsViewController
 {
     UIView *_currentView;
     KxMovieViewController *_movieViewController;
     SPLMImageViewController *_imageViewController;
 @private
 
+    __weak UITextView *_aboutTextView;
 }
 
 @synthesize currentView = _currentView;
+
+@synthesize aboutTextView = _aboutTextView;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    SPLMAboutTextProxy *aboutTextProxy = [SPLMAboutTextProxy new];
+    _aboutTextView.text = [aboutTextProxy aboutText];
+}
+
 
 - (void)selectCamera:(SPLMCamera *)camera
 {

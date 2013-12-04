@@ -5,15 +5,15 @@
 
 
 #import "SPLMiPadMainViewController.h"
-#import "SPLMiPadRightViewController.h"
+#import "SPLMiPadDetailsViewController.h"
 #import "MGSplitCornersView.h"
 
 
 @implementation SPLMiPadMainViewController
 {
-    SPLMiPadRightViewController *_rightViewController;
+    SPLMiPadDetailsViewController *_rightViewController;
     MGSplitViewController *_splitViewController;
-    SPLMiPadLeftViewController *_leftViewController;
+    SPLMiPadMasterViewController *_leftViewController;
 
 }
 

@@ -6,8 +6,8 @@
 
 #import <Foundation/Foundation.h>
 #import <MGSplitViewController/MGSplitViewController.h>
-#import "SPLMiPadLeftViewController.h"
+#import "SPLMiPadMasterViewController.h"
 
 
-@interface SPLMiPadMainViewController : UIViewController<MGSplitViewControllerDelegate, SPLMiPadLeftViewControllerDelegate>
+@interface SPLMiPadMainViewController : UIViewController<MGSplitViewControllerDelegate, SPLMiPadMasterViewControllerDelegate>
 @end

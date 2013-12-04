@@ -120,8 +120,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SPLMImageViewController *controller = segue.destinationViewController;
-    controller.camera = [_camerasDataSource cameraForIndexPath:[_tableView indexPathForSelectedRow]];
+    if ([segue.identifier isEqualToString:@"ImageSegue"])
+    {
+        SPLMImageViewController *controller = segue.destinationViewController;
+        controller.camera = [_camerasDataSource cameraForIndexPath:[_tableView indexPathForSelectedRow]];
+    }
+
 }
 
 - (void)showVideoPlayerForUrl:(NSString *)url title:(NSString *)title

@@ -6,10 +6,11 @@
 
 #import <Foundation/Foundation.h>
 #import <MGSplitViewController/MGSplitViewController.h>
-#import "SPLMiPadLeftViewController.h"
+#import "SPLMiPadMasterViewController.h"
 
 
-@interface SPLMiPadRightViewController : UIViewController
+@interface SPLMiPadDetailsViewController : UIViewController
 - (void)selectCamera:(SPLMCamera *)camera;
 @property UIView *currentView;
+@property (weak) IBOutlet UITextView *aboutTextView;
 @end

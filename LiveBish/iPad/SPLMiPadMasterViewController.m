@@ -1,28 +1,28 @@
 //
-//  SPLMiPadLeftViewController.m
+//  SPLMiPadMasterViewController.m
 //  LiveBish
 //
 //  Created by Adilet Abylov on 15.10.13.
 //  Copyright (c) 2013 Adilet Abylov. All rights reserved.
 //
 
-#import "SPLMiPadLeftViewController.h"
+#import "SPLMiPadMasterViewController.h"
 #import "SPLMCamerasDataSource.h"
 
-@interface SPLMiPadLeftViewController ()
+@interface SPLMiPadMasterViewController ()
 {
 
 }
 @end
 
-@implementation SPLMiPadLeftViewController
+@implementation SPLMiPadMasterViewController
 {
     SPLMCamerasDataSource *_camerasDataSource;
     SPLMCamerasProxy *_camerasProxy;
 
 
 @private
-    __weak id <SPLMiPadLeftViewControllerDelegate> _delegate;
+    __weak id <SPLMiPadMasterViewControllerDelegate> _delegate;
     __weak UITableView *_tableView;
     __weak UINavigationBar *_nabVar;
 }

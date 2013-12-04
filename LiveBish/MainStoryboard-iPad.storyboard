@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="InG-ls-RLa">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Mi Pad Right View Controller-->
+        <!--Mi Pad Details View Controller-->
         <scene sceneID="VsD-Kh-jec">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" id="4W2-EB-IFI" customClass="SPLMiPadRightViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="4W2-EB-IFI" customClass="SPLMiPadDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RuB-om-5Sl"/>
                         <viewControllerLayoutGuide type="bottom" id="t3s-6k-mg0"/>
@@ -24,15 +24,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="sV8-Xj-GcY"/>
                                 </constraints>
-                                <string key="text">В приложении используется
-контент с камер следующих сервисов:
-
-ЗАО "Saima-Telecom"
-http://live.saimanet.kg/ 
-Smotri.kg
-http://smotri.kg
-
-Spalmalo 2013</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -48,6 +39,9 @@ Spalmalo 2013</string>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ILu-0f-2SV"/>
+                    <connections>
+                        <outlet property="aboutTextView" destination="xJf-df-JRO" id="Mhg-bJ-fsR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuY-YC-hql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,7 +50,7 @@ Spalmalo 2013</string>
         <!--Mi Pad Left View Controller-->
         <scene sceneID="nwS-sc-Sn9">
             <objects>
-                <viewController storyboardIdentifier="MasterViewController" id="9J9-ce-p75" customClass="SPLMiPadLeftViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MasterViewController" id="9J9-ce-p75" customClass="SPLMiPadMasterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dsd-0h-8aG"/>
                         <viewControllerLayoutGuide type="bottom" id="Pyc-PW-vSn"/>

@@ -1,5 +1,5 @@
 //
-//  SPLMiPadLeftViewController.h
+//  SPLMiPadMasterViewController.h
 //  LiveBish
 //
 //  Created by Adilet Abylov on 15.10.13.
@@ -10,12 +10,12 @@
 #import "SPLMCamerasProxy.h"
 #import "SPLMCamera.h"
 
-@protocol SPLMiPadLeftViewControllerDelegate <NSObject>
+@protocol SPLMiPadMasterViewControllerDelegate <NSObject>
 - (void)didSelectCamera:(SPLMCamera *)camera;
 @end
 
-@interface SPLMiPadLeftViewController : UIViewController <SPLMCamerasProxyDelegate, UITableViewDelegate>
+@interface SPLMiPadMasterViewController : UIViewController <SPLMCamerasProxyDelegate, UITableViewDelegate>
 @property(weak) IBOutlet UITableView *tableView;
 @property (weak) IBOutlet UINavigationBar *nabVar;
-@property(weak) id <SPLMiPadLeftViewControllerDelegate> delegate;
+@property(weak) id <SPLMiPadMasterViewControllerDelegate> delegate;
 @end
