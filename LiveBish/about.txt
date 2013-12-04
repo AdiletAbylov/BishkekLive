@@ -1,0 +1,15 @@
+В приложении используется контент следующих сервисов:
+
+ЗАО "Saima-Telecom"
+http://live.saimanet.kg/
+ 
+Smotri.kg
+http://smotri.kg
+
+Горнолыжная база Орловка
+http://www.orlovka.kg/
+
+Горнолыжная база Кашка-Суу
+http://www.kashka-suu.kg
+
+Spalmalo 2013

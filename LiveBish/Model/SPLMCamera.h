@@ -8,8 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum CameraSourceType
+{
+    CameraSourceTypeVideo,
+    CameraSourceTypeImage,
+    CameraSourceTypeImageOrlovka
+
+} CameraSourceType;
+
 @interface SPLMCamera : NSObject
 @property NSString *title;
 @property NSString *videoURL;
 @property NSString *previewImageURL;
+@property NSString *type;
+@property(readonly, nonatomic) CameraSourceType sourceType;
 @end

@@ -67,6 +67,9 @@
                                 <state key="normal" title="Прикоснитесь, что бы обновить">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="XHR-ce-yIy" kind="modal" identifier="ImageSegue" id="HWK-bA-hbl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -89,7 +92,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kA4-CV-eRg" kind="push" id="3db-Sr-65y"/>
+                                    <segue destination="KOk-Fz-RRi" kind="push" id="fAF-5n-sCb"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -103,73 +106,94 @@
             </objects>
             <point key="canvasLocation" x="1177" y="245"/>
         </scene>
-        <!--Table View Controller - О приложении-->
-        <scene sceneID="E2S-rE-0yR">
+        <!--About View Controller - О приложении-->
+        <scene sceneID="EaT-lN-fmd">
             <objects>
-                <tableViewController id="kA4-CV-eRg" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Pxb-Gu-0zn">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="В приложении используется контент с камер следующих сервисов:" footerTitle="Spalmalo 2013" id="gfn-EI-f7f">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="f22-Op-RbA">
-                                        <rect key="frame" x="0.0" y="72" width="320" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f22-Op-RbA" id="QCc-dz-aVr">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfh-4o-2Ad">
-                                                    <rect key="frame" x="20" y="0.0" width="280" height="59"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <string key="text">ЗАО "Saima-Telecom"
-http://live.saimanet.kg/</string>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                                </textView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Goa-nn-jpJ">
-                                        <rect key="frame" x="0.0" y="132" width="320" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Goa-nn-jpJ" id="epo-1w-0tm">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRM-zt-ajo">
-                                                    <rect key="frame" x="20" y="0.0" width="280" height="59"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <string key="text">Smotri.kg
-http://smotri.kg</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                                </textView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="kA4-CV-eRg" id="Y4M-Dv-woD"/>
-                            <outlet property="delegate" destination="kA4-CV-eRg" id="yh2-dY-LOg"/>
-                        </connections>
-                    </tableView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="О приложении" id="lCp-00-RqH">
-                        <barButtonItem key="backBarButtonItem" title="Камеры" id="SeE-Em-JFl"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CcJ-HB-MpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="KOk-Fz-RRi" customClass="SPLMAboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YS1-RN-Mzk"/>
+                        <viewControllerLayoutGuide type="bottom" id="1vN-cu-XIq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rlX-r9-pEz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MDD-RB-Hdu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="О приложении" id="mYv-7U-exg"/>
+                    <connections>
+                        <outlet property="aboutTextView" destination="MDD-RB-Hdu" id="AAw-xe-jFX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w1r-Qf-wqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="271"/>
+            <point key="canvasLocation" x="1742" y="296"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="Zq8-6M-xOk">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewController" id="XHR-ce-yIy" customClass="SPLMImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1hG-G6-BU4"/>
+                        <viewControllerLayoutGuide type="bottom" id="yLV-T0-tlP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="key-oI-M8j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bld-Wt-bN2">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="lp0-h5-sua">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="FLY-Gk-Ttv">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="9fa-t3-opH">
+                                            <connections>
+                                                <action selector="didTouchDone:" destination="XHR-ce-yIy" id="3PT-zD-Lic"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="w0E-ak-M5I">
+                                            <connections>
+                                                <action selector="didTouchRefresh:" destination="XHR-ce-yIy" id="QvK-Qg-hWs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="yLV-T0-tlP" firstAttribute="top" secondItem="bld-Wt-bN2" secondAttribute="bottom" id="2s3-u0-e0Z"/>
+                            <constraint firstItem="bld-Wt-bN2" firstAttribute="leading" secondItem="key-oI-M8j" secondAttribute="leading" id="R59-gi-D7n"/>
+                            <constraint firstAttribute="trailing" secondItem="lp0-h5-sua" secondAttribute="trailing" id="aJN-Uw-2rj"/>
+                            <constraint firstItem="bld-Wt-bN2" firstAttribute="top" secondItem="key-oI-M8j" secondAttribute="top" constant="44" id="erk-ct-9bX"/>
+                            <constraint firstAttribute="trailing" secondItem="bld-Wt-bN2" secondAttribute="trailing" id="jvV-OK-92z"/>
+                            <constraint firstItem="lp0-h5-sua" firstAttribute="top" secondItem="1hG-G6-BU4" secondAttribute="bottom" id="u3w-01-TQS"/>
+                            <constraint firstItem="lp0-h5-sua" firstAttribute="leading" secondItem="key-oI-M8j" secondAttribute="leading" id="uZT-36-OPb"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="doneItem" destination="9fa-t3-opH" id="y2B-Pd-t9F"/>
+                        <outlet property="imageView" destination="bld-Wt-bN2" id="xPK-53-NJV"/>
+                        <outlet property="navBar" destination="lp0-h5-sua" id="yl3-jo-Kja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DwG-cI-vbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="-387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cdP-Tl-gte">

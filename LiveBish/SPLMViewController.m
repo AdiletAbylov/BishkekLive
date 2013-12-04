@@ -17,10 +17,12 @@
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
+#import "SPLMImageViewController.h"
+#import "SPLMCamerasDataSource.h"
 
 @interface SPLMViewController ()
 {
-    NSArray *_cameras;
+    SPLMCamerasDataSource *_camerasDataSource;
     SPLMCamerasProxy *_camerasProxy;
 }
 
@@ -38,13 +40,22 @@
 
 - (void)viewDidLoad
 {
+    _camerasDataSource = [SPLMCamerasDataSource new];
     _tableView.delegate = self;
-    _tableView.dataSource = self;
+    _tableView.dataSource = _camerasDataSource;
+
     [_refreshButton addTarget:self action:@selector(didTouchRefreshButton:) forControlEvents:UIControlEventTouchUpInside];
     _refreshButton.hidden = YES;
     [super viewDidLoad];
     [self fetchCameras];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
+}
+
 
 - (void)didTouchRefreshButton:(id)sender
 {
@@ -78,7 +89,7 @@
 
 - (void)camerasFetchSuccess:(NSArray *)cameras
 {
-    _cameras = cameras;
+    _camerasDataSource.cameras = cameras;
     [SVProgressHUD dismiss];
     [_tableView reloadData];
 }
@@ -90,50 +101,42 @@
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return _cameras.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    SPLMPlace *place = [_cameras objectAtIndex:section];
-    return place.cameras.count;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    SPLMPlace *place = [_cameras objectAtIndex:section];
-    return place.placeName;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    SPLMCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    SPLMCamera *camera = [self cameraForIndexPath:indexPath];
-    cell.titleLabel.text = camera.title;
-    return cell;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SPLMCamera *camera = [self cameraForIndexPath:indexPath];
-    UIGraphicsBeginImageContext(CGSizeMake(1, 1));// workaround to remove error messages
-    KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:camera.videoURL parameters:nil];
-    controller.titleText = camera.title;
-    [self presentViewController:controller animated:YES completion:nil];
+    SPLMCamera *camera = [_camerasDataSource cameraForIndexPath:indexPath];
+    if (camera.sourceType == CameraSourceTypeVideo)
+    {
+        [self showVideoPlayerForUrl:camera.videoURL title:camera.title];
+    } else
+    {
+        [self performSegueWithIdentifier:@"ImageSegue" sender:self];
+    }
+
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Video Play View: %@", camera.title]];
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ImageSegue"])
+    {
+        SPLMImageViewController *controller = segue.destinationViewController;
+        controller.camera = [_camerasDataSource cameraForIndexPath:[_tableView indexPathForSelectedRow]];
+    }
+
+}
+
+- (void)showVideoPlayerForUrl:(NSString *)url title:(NSString *)title
+{
+    UIGraphicsBeginImageContext(CGSizeMake(1, 1));// workaround to remove error messages
+    KxMovieViewController *controller = [KxMovieViewController movieViewControllerWithContentPath:url parameters:nil];
+    controller.titleText = title;
+    [self presentViewController:controller animated:YES completion:nil];
     UIGraphicsEndImageContext();
 }
 
-- (SPLMCamera *)cameraForIndexPath:(NSIndexPath *)indexPath
-{
-    SPLMPlace *place = [_cameras objectAtIndex:indexPath.section];
-    NSArray *cityCameras = place.cameras;
-    return [cityCameras objectAtIndex:indexPath.row];
-}
 
 - (NSUInteger)supportedInterfaceOrientations
 {
