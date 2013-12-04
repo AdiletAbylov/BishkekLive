@@ -71,7 +71,7 @@
 - (void)loadImageFromURL:(NSString *)urlString
 {
     NSURL *url = [[NSURL alloc] initWithString:urlString];
-    NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
+    NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
     [SVProgressHUD show];
     [_imageView setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image)
     {
