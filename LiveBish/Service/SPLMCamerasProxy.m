@@ -15,7 +15,7 @@
 #import "SPLMJSONResponseSerializer.h"
 
 #define CAMERAS_URL @"https://dl.dropboxusercontent.com/s/avgj0ipai6tt70r/cameras"
-#define CAMERAS_TEST_URL @"https://dl.dropboxusercontent.com/s/kz2tfty228zxp4m/cameras_test"
+#define CAMERAS_TEST_URL @"https://dl.dropboxusercontent.com/s/ck2nx8ts0uxzlkp/cameras_1.2"
 
 @implementation SPLMCamerasProxy
 {
