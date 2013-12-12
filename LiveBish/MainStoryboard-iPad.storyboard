@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="1180" y="181"/>
         </scene>
-        <!--Mi Pad Left View Controller-->
+        <!--Mi Pad Master View Controller-->
         <scene sceneID="nwS-sc-Sn9">
             <objects>
                 <viewController storyboardIdentifier="MasterViewController" id="9J9-ce-p75" customClass="SPLMiPadMasterViewController" sceneMemberID="viewController">
